@@ -1,0 +1,5 @@
+Django==2.0
+django-ckeditor==5.4.0
+django-js-asset==1.0.0
+Pillow==5.0.0
+pytz==2017.3
