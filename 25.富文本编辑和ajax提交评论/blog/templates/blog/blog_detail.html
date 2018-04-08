@@ -46,8 +46,8 @@
                     <h3 class="comment-area-title">提交评论</h3>
                     {% if user.is_authenticated %}
                         <form id="comment_form" action="{% url 'update_comment' %}" method="POST" style="overflow:hidden">
-                            {% csrf_token %}
-                            <label for="comment_text">{{ user.username }}，欢迎评论~</label>
+                            <label>{{ user.username }}，欢迎评论~</label>
+                            {% csrf_token %}                            
                             {% for field in comment_form %}
                                 {{ field }}
                             {% endfor %}
@@ -71,7 +71,7 @@
                                 {{ comment.text|safe }}
                             </div>
                         {% empty %}
-                            <span id="no_comment">暂无评论</span>
+                            暂无评论
                         {% endfor %}
                     </div>                    
                 </div>
@@ -83,36 +83,39 @@
 {% block script_extends %}
     <script type="text/javascript">
         $("#comment_form").submit(function(){
-            // 验证数据
-            $("#comment_error").text("");
-            var text = CKEDITOR.instances["id_text"].document.getBody().getText().trim();
-            if(text==''){
-                $("#comment_error").text("评论内容不能为空");
+            // 判断是否为空
+            $("#comment_error").text('');
+            if(CKEDITOR.instances["id_text"].document.getBody().getText().trim()==''){
+                $("#comment_error").text('评论内容不能为空');
                 return false;
             }
 
-            // 提交数据
-            CKEDITOR.instances["id_text"].updateElement();
+            // 更新数据到textarea
+            CKEDITOR.instances['id_text'].updateElement();
+
+            // 异步提交
             $.ajax({
                 url: "{% url 'update_comment' %}",
-                type: "POST",
-                data: $("#comment_form").serialize(),
+                type: 'POST',
+                data: $(this).serialize(),
                 cache: false,
-                dataType: 'json',
                 success: function(data){
                     console.log(data);
-                    if(data['status']=='SUCCESS'){
-                        $("#no_comment").remove();
-                        var comment_html = "<div>" + data['username'] + " (" + data['comment_time'] + ")：" + data['text'] + "</div>";
+                    if(data['status']=="SUCCESS"){
+                        // 插入数据
+                        var comment_html = '<div>' + data['username'] + 
+                                           ' (' + data['comment_time'] + ')：' + 
+                                           data['text'] + '</div>';
                         $("#comment_list").prepend(comment_html);
-                        CKEDITOR.instances["id_text"].setData('');
+                        // 清空编辑框的内容
+                        CKEDITOR.instances['id_text'].setData('');
                     }else{
+                        // 显示错误信息
                         $("#comment_error").text(data['message']);
-                    }
+                    }                    
                 },
                 error: function(xhr){
                     console.log(xhr);
-                    $("#comment_error").text("发生未知错误，请稍后重试");
                 }
             });
             return false;

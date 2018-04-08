@@ -9,6 +9,7 @@ from read_statistics.utils import read_statistics_once_read
 from comment.models import Comment
 from comment.forms import CommentForm
 
+
 def get_blog_list_common_data(request, blogs_all_list):
     paginator = Paginator(blogs_all_list, settings.EACH_PAGE_BLOGS_NUMBER)
     page_num = request.GET.get('page', 1) # 获取url的页面参数（GET请求）
