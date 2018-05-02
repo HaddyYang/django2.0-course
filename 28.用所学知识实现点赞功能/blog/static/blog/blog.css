@@ -65,12 +65,12 @@ p#reply_title {
 }
 
 div.like {
+    color: #337ab7;
     cursor: pointer;
     display: inline-block;
     padding: 0.5em 0.3em;
-    color: #337ab7;
 }
 
-div.like .active {
+div.like .active{
     color: #f22;
 }

@@ -103,9 +103,9 @@
                                             {{ reply.text|safe }}
                                         </div>
                                         <div class="like" onclick="likeChange(this, '{% get_content_type reply %}', {{ reply.pk }})">
-                                        <span class="glyphicon glyphicon-thumbs-up {% get_like_status reply %}"></span>
-                                        <span class="liked-num">{% get_like_count reply %}</span>
-                                    </div>
+                                            <span class="glyphicon glyphicon-thumbs-up {% get_like_status reply %}"></span>
+                                            <span class="liked-num">{% get_like_count reply %}</span>
+                                        </div>
                                         <a href="javascript:reply({{ reply.pk }});">回复</a>
                                     </div>                                    
                                 {% endfor %}
@@ -194,8 +194,7 @@
             return false;
         });
         function likeChange(obj, content_type, object_id){
-            var is_like = obj.getElementsByClassName('active').length == 0;
-
+            var is_like = obj.getElementsByClassName('active').length == 0
             $.ajax({
                 url: "{% url 'like_change' %}",
                 type: 'GET',
@@ -206,16 +205,16 @@
                 },
                 cache: false,
                 success: function(data){
-                    console.log(data);
+                    console.log(data)
                     if(data['status']=='SUCCESS'){
-                        // 更改点赞图标样式
+                        // 更新点赞状态
                         var element = $(obj.getElementsByClassName('glyphicon'));
                         if(is_like){
                             element.addClass('active');
                         }else{
                             element.removeClass('active');
                         }
-                        // 更改点赞数量
+                        // 更新点赞数量
                         var liked_num = $(obj.getElementsByClassName('liked-num'));
                         liked_num.text(data['liked_num']);
                     }else{
@@ -223,7 +222,7 @@
                     }
                 },
                 error: function(xhr){
-                    console.log(xhr);
+                    console.log(xhr)
                 }
             });
         }
