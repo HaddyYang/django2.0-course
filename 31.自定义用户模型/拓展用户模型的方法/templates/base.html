@@ -46,7 +46,9 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">{{ user.username }} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{% url 'user_info' %}">个人资料</a></li>
-                                <li><a href="{% url 'admin:index' %}">后台管理</a></li>
+                                {% if user.is_staff or user.is_superuser %}
+                                    <li><a href="{% url 'admin:index' %}">后台管理</a></li>
+                                {% endif %}
                                 <li><a href="{% url 'logout' %}?from={{ request.get_full_path }}">退出</a></li>
                             </ul>
                         </li>
