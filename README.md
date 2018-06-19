@@ -31,17 +31,19 @@ Django是Python的一种web框架，需要Python才可使用。本教程使用Py
 
 ## 目录大纲
 01.什么是Django
-	- Django是Python Web框架
-	- Django的特点
-	- 安装Python3
-	- 安装Django2.0 
-
+<ul>
+	<li>Django是Python Web框架</li>
+    <li>Django的特点</li>
+    <li>安装Python3</li>
+    <li>安装Django2.0</li>
+</ul>
 02.入门仪式：Hello World
-	- 创建Django项目
-	- 在网页打出"Hello, world"
-	- 初步介绍urls路由
-	- 创建超级管理员，进入后台管理界面
-    
+<ul>
+    <li>创建Django项目</li>
+    <li>"Hello, world"</li>
+    <li>初步介绍urls路由</li>
+    <li>创建超级管理员，进入后台管理界面</li>
+</ul>
 (完善中...)
 
 ## 注意
