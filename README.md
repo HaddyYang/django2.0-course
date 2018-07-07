@@ -24,7 +24,10 @@ Django是Python的一种web框架，需要Python才可使用。本教程使用Py
 
 ```pip install -r requirements.txt```
 
-#### 4、启动本地服务
+#### 4、第36节需要安装的mysqlclient库
+第36节需要的mysqlclient库先用pip install mysqlclient安装。不行的话，打开[https://www.lfd.uci.edu/~gohlke/pythonlibs/#mysqlclient](https://www.lfd.uci.edu/~gohlke/pythonlibs/#mysqlclient)下载mysqlclient的whl包，再用pip安装这个whl包。
+
+#### 5、启动本地服务
 进入项目根目录，执行命令：
 
 ```python manage.py runserver```
