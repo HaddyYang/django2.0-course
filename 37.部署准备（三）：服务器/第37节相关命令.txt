@@ -1,0 +1,52 @@
+安装python3.6
+	apt-get install software-properties-common
+	add-apt-repository ppa:jonathonf/python-3.6
+	apt-get update
+	apt-get install python3.6
+
+创建软链接
+	cd /usr/bin
+	rm python
+	ln -s python3.6 python
+	rm python3
+	ln -s python3.6 python3
+
+安装pip3.6
+	apt-get install python3-pip
+	pip3 install --upgrade pip
+
+安装虚拟环境
+	pip3 install virtualenv
+
+创建虚拟环境
+	virtualenv mysite_env
+	source mysite_env/bin/activate
+	deactivate
+
+安装git
+	apt-get install git
+
+clone代码
+	git clone 
+
+安装mysql
+	wget https://dev.mysql.com/get/mysql-apt-config_0.8.10-1_all.deb
+	dpkg -i mysql-apt-config_0.8.10-1_all.deb
+	apt-get update
+	apt-get install mysql-server
+
+同步数据
+
+上传settings.py用于测试
+
+安装mysqlclient
+	wget libmysqlclient-dev_8.0.11-1ubuntu16.04_amd64.deb
+	dpkg -i libmysqlclient-dev_8.0.11-1ubuntu16.04_amd64.deb
+	apt-get update
+	apt-get install libmysqlclient-dev 
+	apt-get install python3.6-dev
+	apt-get install openssl
+	apt-get install libssl-dev
+
+测试启动
+	python manage.py runserver 0.0.0.0:80
