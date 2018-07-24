@@ -47,6 +47,14 @@ Django是Python的一种web框架，需要Python才可使用。本教程使用Py
     <li>初步介绍urls路由</li>
     <li>创建超级管理员，进入后台管理界面</li>
 </ul>
+03.Django基本应用结构
+<ul>
+    <li>什么是Django应用</li>
+    <li>创建Django应用</li>
+    <li>初步介绍models模型</li>
+    <li>模型同步到数据库</li>
+    <li>简单把模型展现到后台管理界面</li>
+</ul>
 (完善中...)
 
 ## 注意
