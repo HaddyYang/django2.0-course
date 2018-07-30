@@ -1,52 +1,54 @@
-°²×°python3.6
+å®‰è£…python3.6
+        apt-get update
 	apt-get install software-properties-common
 	add-apt-repository ppa:jonathonf/python-3.6
 	apt-get update
 	apt-get install python3.6
 
-´´½¨ÈíÁ´½Ó
+åˆ›å»ºè½¯é“¾æ¥
 	cd /usr/bin
 	rm python
 	ln -s python3.6 python
 	rm python3
 	ln -s python3.6 python3
 
-°²×°pip3.6
+å®‰è£…pip3.6
 	apt-get install python3-pip
 	pip3 install --upgrade pip
 
-°²×°ĞéÄâ»·¾³
+å®‰è£…è™šæ‹Ÿç¯å¢ƒ
 	pip3 install virtualenv
 
-´´½¨ĞéÄâ»·¾³
+åˆ›å»ºè™šæ‹Ÿç¯å¢ƒ
 	virtualenv mysite_env
 	source mysite_env/bin/activate
 	deactivate
 
-°²×°git
+å®‰è£…git
 	apt-get install git
 
-clone´úÂë
+cloneä»£ç 
 	git clone 
 
-°²×°mysql
+å®‰è£…mysql
 	wget https://dev.mysql.com/get/mysql-apt-config_0.8.10-1_all.deb
 	dpkg -i mysql-apt-config_0.8.10-1_all.deb
 	apt-get update
 	apt-get install mysql-server
 
-Í¬²½Êı¾İ
+åŒæ­¥æ•°æ®
 
-ÉÏ´«settings.pyÓÃÓÚ²âÊÔ
+ä¸Šä¼ settings.pyç”¨äºæµ‹è¯•
 
-°²×°mysqlclient
-	wget libmysqlclient-dev_8.0.11-1ubuntu16.04_amd64.deb
+å®‰è£…mysqlclient
+	wget https://dev.mysql.com/get/libmysqlclient-dev_8.0.11-1ubuntu16.04_amd64.deb
 	dpkg -i libmysqlclient-dev_8.0.11-1ubuntu16.04_amd64.deb
+	# æ‰§è¡Œä¸Šä¸€å¥ï¼Œè‹¥æç¤ºæ²¡æœ‰æŒ‰ç…§libmysqlclient21ï¼Œåˆ™æ‰§è¡Œapt-get install libmysqlclient21 
 	apt-get update
 	apt-get install libmysqlclient-dev 
 	apt-get install python3.6-dev
 	apt-get install openssl
 	apt-get install libssl-dev
 
-²âÊÔÆô¶¯
+æµ‹è¯•å¯åŠ¨
 	python manage.py runserver 0.0.0.0:80
