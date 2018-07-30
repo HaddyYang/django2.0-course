@@ -43,6 +43,7 @@ clone代码
 安装mysqlclient
 	wget https://dev.mysql.com/get/libmysqlclient-dev_8.0.11-1ubuntu16.04_amd64.deb
 	dpkg -i libmysqlclient-dev_8.0.11-1ubuntu16.04_amd64.deb
+	# 执行上一句，若提示没有按照libmysqlclient21，则执行apt-get install libmysqlclient21 
 	apt-get update
 	apt-get install libmysqlclient-dev 
 	apt-get install python3.6-dev
