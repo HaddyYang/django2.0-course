@@ -41,7 +41,7 @@ clone代码
 上传settings.py用于测试
 
 安装mysqlclient
-	wget libmysqlclient-dev_8.0.11-1ubuntu16.04_amd64.deb
+	wget https://dev.mysql.com/get/libmysqlclient-dev_8.0.11-1ubuntu16.04_amd64.deb
 	dpkg -i libmysqlclient-dev_8.0.11-1ubuntu16.04_amd64.deb
 	apt-get update
 	apt-get install libmysqlclient-dev 
