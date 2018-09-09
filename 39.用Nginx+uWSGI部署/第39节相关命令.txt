@@ -1,0 +1,105 @@
+1、安装uwsgi
+注意：
+	1）在系统环境安装，非虚拟环境
+	2）使用对应python版本安装
+	3）要先安装python开发包
+
+pip3 install uwsgi
+
+
+2、测试 uwsgi 是否正常：
+新建 test.py 文件，内容如下：
+def application(env, start_response):
+    start_response('200 OK', [('Content-Type','text/html')])
+    return "Hello World"
+
+然后在终端运行：
+uwsgi --http :8001 --wsgi-file test.py
+注意：需要开启端口才可以正常访问
+
+
+3、可以用uwsgi的http协议访问django写的网站
+执行如下命令可以测试自己的项目
+uwsgi --http :8001 --chdir /home/mysite --home /home/mysite_env --module mysite.wsgi:application
+
+
+4、安装nginx
+若有安装过apache，要先把apache服务关闭(apache2ctl stop)
+apt-get update
+apt-get install nginx
+
+移除default
+/etc/nginx/sites-enabled/default
+
+进入sites-available创建新的配置
+cd /etc/nginx/sites-available/
+vim mysite.conf
+
+配置可以参考下面：
+server {
+    listen 80;
+    server_name mysite;
+    charset utf-8;
+
+    client_max_body_size 75M;
+
+    location /static {
+        alias /home/mysite/static;
+    }
+
+    location /media {
+        alias /home/mysite/media;
+    }
+
+    location / {
+        uwsgi_pass 127.0.0.1:8001;
+        include /etc/nginx/uwsgi_params;
+    }
+}
+
+再设置软链接到sites-enabled
+ln -s /etc/nginx/sites-available/mysite.conf /etc/nginx/sites-enabled/mysite.conf
+
+
+5、配置uwsgi，创建ini文件方便处理。ini参考如下：
+[uwsgi]
+chdir = /home/mysite
+home = /home/mysite_env
+module = mysite.wsgi:application
+
+master = True
+processes = 4
+harakiri = 60
+max-requests = 5000
+
+socket = 127.0.0.1:8001
+uid = 1000
+gid = 2000
+
+pidfile = /home/mysite_uwsgi/master.pid
+daemonize = /home/mysite_uwsgi/mysite.log
+vacuum = True
+
+
+6、启动uwsgi
+uwsgi --ini /home/mysite_uwsgi/mysite.ini
+
+
+7、重启nginx
+service nginx restart
+
+
+=======================
+其他参考：
+nginx测试命令：nginx -t
+查看uwsgi进程：ps -aux | grep uwsgi
+正常关闭uwsgi进程：uwsgi --stop /home/mysite_uwsgi/master.pid
+强制关闭全部uwsgi进程：ps -aux | grep uwsgi |awk '{print $2}'|xargs kill -9
+重新加载uwsgi：uwsgi --reload /home/mysite_uwsgi/master.pid
+
+参考文档：
+（Django官网）https://docs.djangoproject.com/en/2.1/howto/deployment/wsgi/uwsgi/
+（uwsgi中文）https://uwsgi-docs-zh.readthedocs.io/zh_CN/latest/tutorials/Django_and_nginx.html
+（uwsgi英文）https://uwsgi.readthedocs.io/en/latest/tutorials/Django_and_nginx.html
+（自强学堂）https://code.ziqiangxuetang.com/django/django-nginx-deploy.html
+
