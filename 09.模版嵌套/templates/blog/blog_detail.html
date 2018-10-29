@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{# 页面标题 #}
+{% block title %}
+    {{ blog.title }}
+{% endblock %}
+
+{# 页面内容 #}
+{% block content %}
+    <h3>{{ blog.title }}</h3>
+    <p>作者：{{ blog.author }}</p>
+    <p>发表日期：{{ blog.created_time|date:"Y-m-d H:n:s" }}</p>
+    <p>分类：
+        <a href="{% url 'blogs_with_type' blog.blog_type.pk %}">
+            {{ blog.blog_type }}
+        </a>
+    </p>
+    <p>{{ blog.content }}</p>
+{% endblock %}
