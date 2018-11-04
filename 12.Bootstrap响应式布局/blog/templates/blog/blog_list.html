@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}我的网站{% endblock %}
+{% block nav_blog_active %}active{% endblock %}
+
+{% load staticfiles %}
+{% block header_extends %}
+    <link rel="stylesheet" href="{% static 'blog/blog.css' %}">
+{% endblock %}
+
+{# 页面内容 #}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10">
+                <div class="panel panel-default">
+                    <div class="panel-heading">{% block blog_list_title %}博客列表（一共有{{ blogs|length }}篇博客）{% endblock %}</div>
+                    <div class="panel-body">
+                        {% for blog in blogs %}
+                            <div class="blog">
+                                <h3><a href="{% url 'blog_detail' blog.pk %}">{{ blog.title }}</a></h3>
+                                <p class="blog-info">
+                                    <span class="glyphicon glyphicon-tag"></span><a href="{% url 'blogs_with_type' blog.blog_type.pk %}">{{ blog.blog_type }}</a>
+                                    <span class="glyphicon glyphicon-time"></span>{{ blog.created_time|date:"Y-m-d" }}
+                                </p>
+                                <p>{{ blog.content|truncatechars:30 }}</p>
+                            </div>
+                        {% empty %}
+                            <div class="blog">
+                                <h3>-- 暂无博客，敬请期待 --</h3>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="hidden-xs col-sm-4 col-md-3 col-lg-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">博客分类</div>
+                    <div class="panel-body">
+                        <ul class="blog-types">
+                            {% for blog_type in blog_types %}
+                                <li><a href="{% url 'blogs_with_type' blog_type.pk %}">{{ blog_type.type_name }}</a></li>
+                            {% empty %}
+                                <li>暂无分类</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
