@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    margin-top: 70px!important;
+}
+ul {
+    list-style-type: none!important; 
+}
+ul.navbar-right {
+    margin-right: 0; 
+}
+
+div.footer {
+    margin-top: 3em;
+    background-color: #eee;
+    color: #555;
+}
+div.website-info {
+    text-align: center;
+    padding-top: 2em;
+    padding-bottom: 1.5em;
+}
+div.website-info p {
+    margin-bottom: 0;
+}
