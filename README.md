@@ -2,19 +2,14 @@
 ![Python](https://img.shields.io/badge/Python-3.x-519dd9.svg)
 ![Django](https://img.shields.io/badge/Django-2.x-519dd9.svg)
 
-该git项目是Django2.0视频教程对应章节的代码，为了查看方便，对应章节代码在对应文件夹中。
-
+该git项目是Django2.0视频教程对应章节的代码，为了查看方便，对应章节代码在对应文件夹中。<br>
 Django2.0视频教程地址：https://space.bilibili.com/252028233/#/channel/detail?cid=28138
 
-版权声明：该套教程版权是作者（杨仕航）所有。
-我这套教程没有在淘宝等任何地方售卖，此为侵权行为，侵权必究。
-
+版权声明：该套教程版权是作者（杨仕航）所有，侵权必究。这套教程我没有在淘宝等任何地方售卖。<br>
 开放同时也要狠抓坏的东西，两只手都要硬。这样才能营造良好的学习环境，让更多人愿意分享自己的内容。
 
 ## 如何使用
-该git项目主要是提供一个可对照的代码给大家。大家一定要先照着视频把代码敲一遍，以加深印象。
-
-每个文件夹对应每节课的代码。
+该git项目主要是提供一个可对照的代码给大家。每个文件夹对应每节课的代码。大家自己一定要先把代码敲一遍，以加深印象。
 
 #### 1、Python
 Django是Python的一种web框架，需要Python才可使用。本教程使用Python3.6的版本录制，建议使用Python3.x最新版本。可打开[Python官网](https://www.python.org/downloads/)下载并安装。
@@ -33,7 +28,8 @@ Django是Python的一种web框架，需要Python才可使用。本教程使用Py
 第36节需要的mysqlclient库先用pip install mysqlclient安装。不行的话，打开[https://www.lfd.uci.edu/~gohlke/pythonlibs/#mysqlclient](https://www.lfd.uci.edu/~gohlke/pythonlibs/#mysqlclient)下载mysqlclient的whl包，再用pip安装这个whl包。
 
 #### 5、启动本地服务
-进入项目根目录，执行命令：```python manage.py runserver```
+进入项目根目录，执行命令：```python manage.py runserver```<br>
+<b>admin后台用户名是ysh，密码是test123456</b>
 
 #### 6、创建缓存表
 从第21节 热门阅读博客排行及缓存提速，开始使用到缓存功能，需要执行命令：```python manage.py createcachetable``` 创建缓存表。若没有执行该命令，可能会出现“no such table: my_cache_table”的错误。
@@ -95,7 +91,6 @@ Django是Python的一种web框架，需要Python才可使用。本教程使用Py
     (未完待续...)
 
 ## 注意
-我后面会继续把其他代码和说明补充完整。
-其中，第5节到第17节之前的代码我没有保留，我正在重新补上中 :)
-
-admin后台用户名是ysh，密码是test123456
+我后面会继续把其他代码和说明补充完整。<br>
+其中，第5节到第17节之前的代码我没有保留，我正在重新补上中 :)<br>
+QQ群：701914136
