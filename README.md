@@ -35,7 +35,7 @@ Django是Python的一种web框架，需要Python才可使用。本教程使用Py
 从第21节 热门阅读博客排行及缓存提速，开始使用到缓存功能，需要执行命令：```python manage.py createcachetable``` 创建缓存表。若没有执行该命令，可能会出现“no such table: my_cache_table”的错误。
 
 ## 教程目录
-### 第1部分 Django基础
+### 第1部分 Django基本认识
     01.什么是Django
     02.入门仪式：Hello World
     03.Django基本应用结构
