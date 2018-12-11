@@ -24,15 +24,15 @@ Django是Python的一种web框架，需要Python才可使用。本教程使用Py
 
 ```pip install -r requirements.txt```
 
-#### 4、第36节需要安装的mysqlclient库
-第36节需要的mysqlclient库先用pip install mysqlclient安装。不行的话，打开[https://www.lfd.uci.edu/~gohlke/pythonlibs/#mysqlclient](https://www.lfd.uci.edu/~gohlke/pythonlibs/#mysqlclient)下载mysqlclient的whl包，再用pip安装这个whl包。
+#### 4、从第21节开始需要创建缓存表
+从“第21节 热门阅读博客排行及缓存提速”开始使用到缓存功能，需要执行命令：```python manage.py createcachetable``` 创建缓存表。若没有执行该命令，可能会出现“no such table: my_cache_table”的错误。
 
-#### 5、启动本地服务
+#### 5、从第36节开始使用MySQL数据库，需要安装的mysqlclient库
+由于从第36节开始使用MySQL数据库，需要的mysqlclient库先用pip install mysqlclient安装。不行的话，打开[https://www.lfd.uci.edu/~gohlke/pythonlibs/#mysqlclient](https://www.lfd.uci.edu/~gohlke/pythonlibs/#mysqlclient)下载mysqlclient的whl包，再用pip安装这个whl包。
+
+#### 6、启动本地服务
 进入项目根目录，执行命令：```python manage.py runserver```<br>
 <b>admin后台用户名是ysh，密码是test123456</b>
-
-#### 6、创建缓存表
-从第21节 热门阅读博客排行及缓存提速，开始使用到缓存功能，需要执行命令：```python manage.py createcachetable``` 创建缓存表。若没有执行该命令，可能会出现“no such table: my_cache_table”的错误。
 
 ## 教程目录
 ### 第1部分 Django基本认识
