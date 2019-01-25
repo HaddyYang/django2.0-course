@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load user_tags %}
+
+{% block title %}我的网站|绑定用户{% endblock %}
+{% block nav_home_active %}active{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4 col-xs-offset-4">
+                {% if not user.is_authenticated %}
+                    <div style="margin: 0 auto; text-align:center;">
+                        <img style="border-radius: 50%;" src="{{ avatar }}">
+                        <p>你好，{{ nickname }}</p>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">绑定用户</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form action="" method="POST">
+                                {% csrf_token %}
+                                {% for field in bind_qq_form %}
+                                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                    {{ field }}
+                                    <p class="text-danger">{{ field.errors.as_text }}</p>
+                                {% endfor %}
+                                <span id="tip" class="text-danger">{{ bind_qq_form.non_field_errors }}</span>
+                                <div class="clearfix"></div>
+                                <a href="{% url 'forgot_password' %}" class="pull-left">忘记密码？</a>
+                                <input type="submit" value="绑定" class="btn btn-primary pull-right">
+                            </form>
+                        </div>
+                    </div>
+                    <a style="text-align: center; display: block;" href="{% url 'create_user_by_qq' %}?nickname={{ nickname }}">
+                        没有账号？直接登录并创建账号 &gt; &gt;
+                    </a>
+                {% else %}
+                    <span>已登录，跳转到首页...</span>
+                    <script type="text/javascript">
+                        window.location.href = '/';
+                    </script>
+                {% endif %}              
+            </div>
+        </div>
+    </div>    
+{% endblock %}
