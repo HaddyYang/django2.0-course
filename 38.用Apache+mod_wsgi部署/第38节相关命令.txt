@@ -28,7 +28,7 @@
 
 	5）编译安装mod_wsgi
 	apt-get install apache2-dev
-	cd mod_wsgi-4.6.4
+	cd mod_wsgi-4.6.4  # mod_wsgi-4.6.4是解压4.6.4.tar.gz得到的目录
 	./configure --with-apxs=/usr/bin/apxs --with-python=/usr/bin/python3.6
 	make
 	make install
