@@ -1,40 +1,43 @@
-1¡¢°²×°apache
-	1£©°²×°ÃüÁî
+1ã€å®‰è£…apache
+	1ï¼‰å®‰è£…å‘½ä»¤
 	apt-get install apache2
 	
-	2£©Ïà¹ØÎÄ¼ş»òÎÄ¼ş¼Ğ
+	2ï¼‰ç›¸å…³æ–‡ä»¶æˆ–æ–‡ä»¶å¤¹
 	/etc/apache2/
 	/var/log/apache2/error.log
 
-	3£©Ïà¹ØÃüÁî
+	3ï¼‰ç›¸å…³å‘½ä»¤
 	apache2ctl configtest
 	apache2ctl restart
 
-2¡¢±àÒëmod_wsgi
-	1£©°²×°±ØĞëµÄÈí¼ş
+2ã€ç¼–è¯‘mod_wsgi
+	1ï¼‰å®‰è£…å¿…é¡»çš„è½¯ä»¶
 	apt-get update
 	apt-get install libapache2-mod-wsgi-py3
 
-	2£©ÏÂÔØ²¢½âÑ¹mod_wsgiÔ´Âë°ü	
+	2ï¼‰ä¸‹è½½å¹¶è§£å‹mod_wsgiæºç åŒ…	
 	wget https://github.com/GrahamDumpleton/mod_wsgi/archive/4.6.4.tar.gz
 	tar xvfz 4.6.4.tar.gz
 
-	3£©²éÑ¯Ïà¹ØÃüÁîµÄÎ»ÖÃ
+	3ï¼‰æŸ¥è¯¢ç›¸å…³å‘½ä»¤çš„ä½ç½®
 	whereis apxs
 	whereis python3.6
+	
+	4) ç¼ºå°‘apxsï¼Œéœ€è¦å®‰è£…apacheå¼€å‘åŒ…ï¼ˆåŒæ ·pythonä¹Ÿéœ€è¦å®‰è£…å¼€å‘åŒ…ï¼‰
+	apt-get install apache2-dev
 
-	4£©±àÒë°²×°mod_wsgi
+	5ï¼‰ç¼–è¯‘å®‰è£…mod_wsgi
 	apt-get install apache2-dev
 	cd mod_wsgi-4.6.4
 	./configure --with-apxs=/usr/bin/apxs --with-python=/usr/bin/python3.6
 	make
 	make install
 
-3¡¢ÅäÖÃ
-²éÑ¯ĞéÄâ»·¾³pythonµÄÎ»ÖÃ
+3ã€é…ç½®
+æŸ¥è¯¢è™šæ‹Ÿç¯å¢ƒpythonçš„ä½ç½®
 python -c 'import sys; print(sys.prefix)'
 
-ÅäÖÃ£º
+4ã€åœ¨/etc/apache2/sites-availableæ·»åŠ é…ç½®æ–‡ä»¶ï¼ˆmysite.confï¼‰ï¼š
 <VirtualHost *:80>
     WSGIDaemonProcess mysite python-home=/home/mysite_env python-path=/home/mysite
     WSGIProcessGroup mysite
@@ -57,3 +60,9 @@ python -c 'import sys; print(sys.prefix)'
     </Directory>    
 </VirtualHost>
 
+5ã€å¯ç”¨é…ç½®
+a2ensite mysite.conf
+
+6ã€æµ‹è¯•å¹¶é‡å¯apache
+apache2ctl configtest
+apache2ctl restart
