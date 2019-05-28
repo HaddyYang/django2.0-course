@@ -5,27 +5,29 @@
 该git项目是Django2.0视频教程对应章节的代码，为了查看方便，对应章节代码在对应文件夹中。<br>
 Django2.0视频教程地址：https://space.bilibili.com/252028233/#/channel/detail?cid=28138
 
-版权声明：该套教程版权是作者（杨仕航）所有，侵权必究。这套教程我没有在淘宝等任何地方售卖。<br>
+版权声明：该套教程版权是作者（**杨仕航**）所有，侵权必究。这套教程我没有在淘宝等任何地方售卖。<br>
 开放同时也要狠抓坏的东西，两只手都要硬。这样才能营造良好的学习环境，让更多人愿意分享自己的内容。
 
 ## 如何使用
-该git项目主要是提供一个可对照的代码给大家。每个文件夹对应每节课的代码。大家自己一定要先把代码敲一遍，以加深印象。
+该git项目主要是提供一个可对照的代码给大家。每个文件夹对应每节课的代码。<br>
+大家自己一定要先把代码敲一遍，消化理解，以加深印象。
 
 #### 1、Python
-Django是Python的一种web框架，需要Python才可使用。本教程使用Python3.6的版本录制，建议使用Python3.x最新版本。可打开[Python官网](https://www.python.org/downloads/)下载并安装。
+Django是Python的一种web框架，需要Python才可使用。<br>
+本教程使用Python3.6的版本录制，建议使用Python3.x最新版本。<br>
+可打开[Python官网](https://www.python.org/downloads/)下载并安装。
 
 #### 2、虚拟环境
 本课程用virtualenv，你也可以使用其他虚拟环境管理Python库。
 
-#### 3、一键安装库
-每次课的代码文件夹都有一个requirments.txt文件。该文件是记录所使用库的信息。可利用该文件直接一键安装所有库。
-
-启动虚拟环境之后（若有使用虚拟环境的的话），进入requirments.txt所在的目录，执行命令：
-
+#### 3、一键安装库（包含Django）
+每次课的代码文件夹都有一个requirments.txt文件。该文件是记录所使用库的信息。可利用该文件直接一键安装所有库。<br>
+启动虚拟环境之后（若有使用虚拟环境的的话），进入requirments.txt所在的目录，执行命令：<br>
 ```pip install -r requirements.txt```
 
 #### 4、从第21节开始需要创建缓存表
-从“第21节 热门阅读博客排行及缓存提速”开始使用到缓存功能，需要执行命令：```python manage.py createcachetable``` 创建缓存表。若没有执行该命令，可能会出现“no such table: my_cache_table”的错误。
+从“第21节 热门阅读博客排行及缓存提速”开始使用到缓存功能，需要执行命令：```python manage.py createcachetable``` 创建缓存表。<br>
+若没有执行该命令，可能会出现**“no such table: my_cache_table”**的错误。
 
 #### 5、从第36节开始使用MySQL数据库，需要安装的mysqlclient库
 由于从第36节开始使用MySQL数据库，需要的mysqlclient库先用pip install mysqlclient安装。不行的话，打开[https://www.lfd.uci.edu/~gohlke/pythonlibs/#mysqlclient](https://www.lfd.uci.edu/~gohlke/pythonlibs/#mysqlclient)下载mysqlclient的whl包，再用pip安装这个whl包。
@@ -42,7 +44,6 @@ Django是Python的一种web框架，需要Python才可使用。本教程使用Py
     04.使用模版显示内容
     05.定制后台和修改模型
 
-
 ### 第2部分 以实际项目带动学习
     06.开始完整制作网站
     07.构建个人博客网站
@@ -56,7 +57,6 @@ Django是Python的一种web框架，需要Python才可使用。本教程使用Py
     15.上下篇博客和按月分类
     16.博客分类统计
     17.博客后台富文本编辑
-
 
 ### 第3部分 学习更丰富的知识
     18.博客阅读简单计数
@@ -77,7 +77,6 @@ Django是Python的一种web框架，需要Python才可使用。本教程使用Py
     33.发挥邮箱作用
     34.评论发送邮件通知
 
-
 ### 第4部分 网站部署
     35.部署准备（一）：Git
     36.部署准备（二）：MySQL
@@ -93,9 +92,15 @@ Django是Python的一种web框架，需要Python才可使用。本教程使用Py
     44.站内消息通知
     (未完待续...)
 
+### 番外篇
+    番外篇：在pythonanywhere部署Django
+    番外篇：在Windows部署Django
+    番外篇：外键那些事儿
+    番外篇：Django admin全面汉化
+
 ## 注意
 我后面会继续把其他代码和说明补充完整。<br>
 其中，第5节到第17节之前的代码我没有保留，我正在重新补上中 :)<br>
-QQ群：701914136<br>
-公众号：再敲一行代码<br>
+**QQ群：701914136**<br>
+**公众号：再敲一行代码**<br>
 ![image](http://yshblog.com/static/img/weixin_mp_qrcode.jpg)
