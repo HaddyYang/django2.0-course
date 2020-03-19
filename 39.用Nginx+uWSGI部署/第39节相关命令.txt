@@ -1,41 +1,50 @@
-1¡¢°²×°uwsgi
-×¢Òâ£º
-	1£©ÔÚÏµÍ³»·¾³°²×°£¬·ÇĞéÄâ»·¾³
-	2£©Ê¹ÓÃ¶ÔÓ¦python°æ±¾°²×°
-	3£©ÒªÏÈ°²×°python¿ª·¢°ü
+1ã€å®‰è£…uwsgi
+æ³¨æ„ï¼š
+	1ï¼‰åœ¨ç³»ç»Ÿç¯å¢ƒå®‰è£…ï¼Œéè™šæ‹Ÿç¯å¢ƒ
+	2ï¼‰ä½¿ç”¨å¯¹åº”pythonç‰ˆæœ¬å®‰è£…
+	3ï¼‰è¦å…ˆå®‰è£…pythonå¼€å‘åŒ…
 
 pip3 install uwsgi
 
 
-2¡¢²âÊÔ uwsgi ÊÇ·ñÕı³££º
-ĞÂ½¨ test.py ÎÄ¼ş£¬ÄÚÈİÈçÏÂ£º
+2ã€æµ‹è¯• uwsgi æ˜¯å¦æ­£å¸¸ï¼š
+æ–°å»º test.py æ–‡ä»¶ï¼Œå†…å®¹å¦‚ä¸‹ï¼š
 def application(env, start_response):
     start_response('200 OK', [('Content-Type','text/html')])
     return "Hello World"
 
-È»ºóÔÚÖÕ¶ËÔËĞĞ£º
+ç„¶ååœ¨ç»ˆç«¯è¿è¡Œï¼š
 uwsgi --http :8001 --wsgi-file test.py
-×¢Òâ£ºĞèÒª¿ªÆô¶Ë¿Ú²Å¿ÉÒÔÕı³£·ÃÎÊ
+æ³¨æ„ï¼šéœ€è¦å¼€å¯ç«¯å£æ‰å¯ä»¥æ­£å¸¸è®¿é—®
 
 
-3¡¢¿ÉÒÔÓÃuwsgiµÄhttpĞ­Òé·ÃÎÊdjangoĞ´µÄÍøÕ¾
-Ö´ĞĞÈçÏÂÃüÁî¿ÉÒÔ²âÊÔ×Ô¼ºµÄÏîÄ¿
+3ã€å¯ä»¥ç”¨uwsgiçš„httpåè®®è®¿é—®djangoå†™çš„ç½‘ç«™
+æ‰§è¡Œå¦‚ä¸‹å‘½ä»¤å¯ä»¥æµ‹è¯•è‡ªå·±çš„é¡¹ç›®
 uwsgi --http :8001 --chdir /home/mysite --home /home/mysite_env --module mysite.wsgi:application
 
+* å‚æ•°è¯´æ˜ï¼š
+    chdirï¼šæŒ‡å‘ç¨‹åºçš„æ ¹ç›®å½•
+    homeï¼šè™šæ‹Ÿç¯å¢ƒçš„è·¯å¾„ï¼Œè‹¥æ²¡æœ‰è™šæ‹Ÿç¯å¢ƒï¼Œå¯ä»¥ä¸å†™è¯¥å‚æ•°
+    moduleï¼šè¦ä½¿ç”¨çš„wsgiæ¨¡å—
 
-4¡¢°²×°nginx
-ÈôÓĞ°²×°¹ıapache£¬ÒªÏÈ°Ñapache·şÎñ¹Ø±Õ(apache2ctl stop)
+* ç‰¹åˆ«è¯´æ˜
+    å’ŒLucasçš„ä¸€æ¬¡è°ƒè¯•ï¼Œå‘ç°å‘½ä»¤è¡Œæœ‰æ—¶éœ€è¦ç”¨envå‚æ•°ï¼Œè®¾ç½®ç¯å¢ƒéå†ã€‚ä¾‹å¦‚
+    uwsgi --http :8001 --chdir /home/mysite --home /home/mysite_env --module mysite.wsgi:application --env DJANGO_SETTINGS_MODULE=mysite.settings
+
+
+4ã€å®‰è£…nginx
+è‹¥æœ‰å®‰è£…è¿‡apacheï¼Œè¦å…ˆæŠŠapacheæœåŠ¡å…³é—­(apache2ctl stop)
 apt-get update
 apt-get install nginx
 
-ÒÆ³ıdefault
+ç§»é™¤default
 /etc/nginx/sites-enabled/default
 
-½øÈësites-available´´½¨ĞÂµÄÅäÖÃ
+è¿›å…¥sites-availableåˆ›å»ºæ–°çš„é…ç½®
 cd /etc/nginx/sites-available/
 vim mysite.conf
 
-ÅäÖÃ¿ÉÒÔ²Î¿¼ÏÂÃæ£º
+é…ç½®å¯ä»¥å‚è€ƒä¸‹é¢ï¼š
 server {
     listen 80;
     server_name mysite;
@@ -57,11 +66,11 @@ server {
     }
 }
 
-ÔÙÉèÖÃÈíÁ´½Óµ½sites-enabled
+å†è®¾ç½®è½¯é“¾æ¥åˆ°sites-enabled
 ln -s /etc/nginx/sites-available/mysite.conf /etc/nginx/sites-enabled/mysite.conf
 
 
-5¡¢ÅäÖÃuwsgi£¬´´½¨iniÎÄ¼ş·½±ã´¦Àí¡£ini²Î¿¼ÈçÏÂ£º
+5ã€é…ç½®uwsgiï¼Œåˆ›å»ºiniæ–‡ä»¶æ–¹ä¾¿å¤„ç†ã€‚iniå‚è€ƒå¦‚ä¸‹ï¼š
 [uwsgi]
 chdir = /home/mysite
 home = /home/mysite_env
@@ -81,25 +90,25 @@ daemonize = /home/mysite_uwsgi/mysite.log
 vacuum = True
 
 
-6¡¢Æô¶¯uwsgi
+6ã€å¯åŠ¨uwsgi
 uwsgi --ini /home/mysite_uwsgi/mysite.ini
 
 
-7¡¢ÖØÆônginx
+7ã€é‡å¯nginx
 service nginx restart
 
 
 =======================
-ÆäËû²Î¿¼£º
-nginx²âÊÔÃüÁî£ºnginx -t
-²é¿´uwsgi½ø³Ì£ºps -aux | grep uwsgi
-Õı³£¹Ø±Õuwsgi½ø³Ì£ºuwsgi --stop /home/mysite_uwsgi/master.pid
-Ç¿ÖÆ¹Ø±ÕÈ«²¿uwsgi½ø³Ì£ºps -aux | grep uwsgi |awk '{print $2}'|xargs kill -9
-ÖØĞÂ¼ÓÔØuwsgi£ºuwsgi --reload /home/mysite_uwsgi/master.pid
+å…¶ä»–å‚è€ƒï¼š
+nginxæµ‹è¯•å‘½ä»¤ï¼šnginx -t
+æŸ¥çœ‹uwsgiè¿›ç¨‹ï¼šps -aux | grep uwsgi
+æ­£å¸¸å…³é—­uwsgiè¿›ç¨‹ï¼šuwsgi --stop /home/mysite_uwsgi/master.pid
+å¼ºåˆ¶å…³é—­å…¨éƒ¨uwsgiè¿›ç¨‹ï¼šps -aux | grep uwsgi |awk '{print $2}'|xargs kill -9
+é‡æ–°åŠ è½½uwsgiï¼šuwsgi --reload /home/mysite_uwsgi/master.pid
 
-²Î¿¼ÎÄµµ£º
-£¨Django¹ÙÍø£©https://docs.djangoproject.com/en/2.1/howto/deployment/wsgi/uwsgi/
-£¨uwsgiÖĞÎÄ£©https://uwsgi-docs-zh.readthedocs.io/zh_CN/latest/tutorials/Django_and_nginx.html
-£¨uwsgiÓ¢ÎÄ£©https://uwsgi.readthedocs.io/en/latest/tutorials/Django_and_nginx.html
-£¨×ÔÇ¿Ñ§ÌÃ£©https://code.ziqiangxuetang.com/django/django-nginx-deploy.html
+å‚è€ƒæ–‡æ¡£ï¼š
+ï¼ˆDjangoå®˜ç½‘ï¼‰https://docs.djangoproject.com/en/2.1/howto/deployment/wsgi/uwsgi/
+ï¼ˆuwsgiä¸­æ–‡ï¼‰https://uwsgi-docs-zh.readthedocs.io/zh_CN/latest/tutorials/Django_and_nginx.html
+ï¼ˆuwsgiè‹±æ–‡ï¼‰https://uwsgi.readthedocs.io/en/latest/tutorials/Django_and_nginx.html
+ï¼ˆè‡ªå¼ºå­¦å ‚ï¼‰https://code.ziqiangxuetang.com/django/django-nginx-deploy.html
 
