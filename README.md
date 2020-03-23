@@ -2,10 +2,10 @@
 ![Python3.x](https://img.shields.io/badge/Python-3.x-519dd9.svg)
 ![Django2.x](https://img.shields.io/badge/Django-2.x-519dd9.svg)
 
-该git项目是Django2.0视频教程对应章节的代码，为了查看方便，对应章节代码在对应文件夹中。<br>
-Django2.0视频教程地址：https://space.bilibili.com/252028233/#/channel/detail?cid=28138
-
 **版权声明：该套教程版权是作者（杨仕航）所有，侵权必究。这套教程我没有在淘宝等任何地方售卖。**
+
+该git项目是Django2.0视频教程对应每节课的代码。为了查看方便，对应章节代码在对应文件夹中。<br>
+Django2.0视频教程地址：https://space.bilibili.com/252028233/#/channel/detail?cid=28138
 
 ## 如何使用
 该git项目主要是提供一个可对照的代码给大家。每个文件夹对应每节课的代码。<br>
@@ -100,7 +100,7 @@ Django是Python的一种web框架，需要Python才可使用。<br>
 
 ## 注意
 我后面会继续把其他代码和说明补充完整。<br>
-其中，第5节到第17节之前的代码我没有保留，我正在重新补上中 :)<br>
+其中，第5节到第17节之前的代码我没有保留，我正在重新制作并逐渐补上<br>
 **QQ群：701914136**<br>
 **公众号：再敲一行代码**<br>
 ![image](https://github.com/HaddyYang/django2.0-course/blob/master/weixin_mp_qrcode.jpg)
