@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    我的网站|搜索
+{% endblock %}
+
+{% block header_extends %}
+{% endblock %}
+
+{% block nav_home_active %}active{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                {% if search_words == '' %}
+                    <h3>你没有搜索任何内容。</h3>
+                    <p>你可以尝试输入点什么东西，例如：Django</p>
+                {% else %}
+                    <h3>搜索“{{ search_words }}”，找到{{ search_blogs_count }}个结果</h3>
+                    <hr>
+                    {% for blog in page_of_blogs %}
+                        <a href="{% url 'blog_detail' blog.pk %}">
+                            <h4>{{ blog.title }}</h4>
+                        </a>
+                        <p>{{ blog.content | striptags | truncatechars_html:100}}</p>
+                    {% empty %}
+                        <p>没有找到任何东西，换个关键词试试吧</p>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        <div class="row" style="display: flex; justify-content: center;">
+            {% if page_of_blogs.has_previous %}
+                <a class="btn btn-default"
+                   href="{% url 'search' %}?wd={{ search_words }}&page={{ page_of_blogs.previous_page_number }}">
+                    上一页
+                </a>
+            {% endif %}
+
+            {% if page_of_blogs.has_next %}
+            <a class="btn btn-default"
+               href="{% url 'search' %}?wd={{ search_words }}&page={{ page_of_blogs.next_page_number }}">
+                下一页
+            </a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

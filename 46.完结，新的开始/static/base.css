@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    margin-top: 70px!important;
+}
+ul {
+    list-style-type: none!important; 
+}
+ul.navbar-right {
+    margin-right: 0; 
+}
+
+.search-form {
+    display: flex;
+    width: 100%!important;
+    margin-left: 0!important;
+}
+.search-form .form-group {
+    width: 100%;
+}
+.search-form button[type="submit"] {
+    background: none;
+    border: none;
+    margin-left: -3em;
+    color: #aaa;
+}
+
+div.footer {
+    margin-top: 3em;
+    background-color: #eee;
+    color: #555;
+}
+div.website-info {
+    text-align: center;
+    padding-top: 2em;
+    padding-bottom: 1.5em;
+}
+div.website-info p {
+    margin-bottom: 0;
+}
+
+.page-bottom{
+    position:absolute;  /*或者fixed*/
+    bottom:0;
+    width: 100%;
+}
+
+.unread-count {
+    background-color: #d9534f!important;
+}

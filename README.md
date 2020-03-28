@@ -90,7 +90,7 @@ Django是Python的一种web框架，需要Python才可使用。<br>
     43.用QQ登录到我们的网站
     44.站内消息通知
     45.站内简单搜索
-    (未完待续...)
+    46.完结，新的开始
 
 ### 番外篇
     番外篇：在pythonanywhere部署Django
