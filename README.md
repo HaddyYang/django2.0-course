@@ -103,5 +103,8 @@ Django是Python的一种web框架，需要Python才可使用。<br>
 **公众号：再敲一行代码**<br>
 ![image](https://github.com/HaddyYang/django2.0-course/blob/master/weixin_mp_qrcode.jpg)
 
-## 我需要你的支持
-![image](https://github.com/HaddyYang/django2.0-course/blob/master/admire.jpg)
+## 助学云
+助学云是我一个粉丝创建，专门为学习时候的我们提供实惠的云服务器。他理念打动了我。
+![理念和价值](https://zqyhdm.com/static/zhuxuecloud_wx.png)
+![助学云QQ群：921547003](https://zqyhdm.com/static/zhuxuecloud.png)
+助学云的服务器（最低配置）我试用过，质量不错。
