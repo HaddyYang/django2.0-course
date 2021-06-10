@@ -1,4 +1,4 @@
-Django==2.0
+Django==2.2.24
 django-ckeditor==5.4.0
 django-js-asset==1.0.0
 Pillow==5.0.0
