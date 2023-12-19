@@ -106,8 +106,7 @@ def bind_email(request):
         form = BindEmailForm()
 
     context = {}
-    context['page_title'] = '绑定邮箱'
-    context['form_title'] = '绑定邮箱'
+    context['form_title'] = context['page_title'] = '绑定邮箱'
     context['submit_text'] = '绑定'
     context['form'] = form
     context['return_back_url'] = redirect_to
